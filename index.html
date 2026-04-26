@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nivora AI — 讓你的商業運作更智慧</title>
+<title>Nivora AI — LINE 群組訊息自動整理工具</title>
+<meta name="description" content="LINE 群組訊息太多看不完？Nivora AI 自動整理成摘要，讓老闆 3 分鐘掌握全貌。">
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
 
@@ -15,7 +16,6 @@
     --border2: rgba(255,255,255,0.14);
     --teal: #00E5C0;
     --teal-dim: rgba(0,229,192,0.12);
-    --teal-dim2: rgba(0,229,192,0.06);
     --text: #F0F2F5;
     --text2: #8A919E;
     --text3: #555D6B;
@@ -25,7 +25,6 @@
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
   html { scroll-behavior: smooth; }
 
   body {
@@ -59,26 +58,15 @@
     color: var(--white);
     text-decoration: none;
   }
+  .logo span { color: var(--teal); }
 
-  .logo span {
-    color: var(--teal);
-  }
-
-  .nav-links {
-    display: flex;
-    gap: 36px;
-    list-style: none;
-  }
-
+  .nav-links { display: flex; gap: 36px; list-style: none; }
   .nav-links a {
     font-size: 14px;
-    font-weight: 400;
     color: var(--text2);
     text-decoration: none;
     transition: color 0.2s;
-    letter-spacing: 0.01em;
   }
-
   .nav-links a:hover { color: var(--text); }
 
   .nav-cta {
@@ -93,12 +81,9 @@
     cursor: pointer;
     text-decoration: none;
     transition: opacity 0.2s;
-    letter-spacing: 0.01em;
   }
-
   .nav-cta:hover { opacity: 0.88; }
 
-  /* Hamburger Menu */
   .hamburger {
     display: none;
     flex-direction: column;
@@ -108,7 +93,6 @@
     border: none;
     padding: 4px;
   }
-
   .hamburger span {
     display: block;
     width: 22px;
@@ -116,7 +100,6 @@
     background: var(--text);
     transition: transform 0.3s, opacity 0.3s;
   }
-
   .hamburger.active span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
   .hamburger.active span:nth-child(2) { opacity: 0; }
   .hamburger.active span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
@@ -133,17 +116,8 @@
     flex-direction: column;
     gap: 20px;
   }
-
   .mobile-menu.open { display: flex; }
-
-  .mobile-menu a {
-    font-size: 16px;
-    color: var(--text2);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-
-  .mobile-menu a:hover { color: var(--text); }
+  .mobile-menu a { font-size: 16px; color: var(--text2); text-decoration: none; }
 
   /* ─── HERO ─── */
   .hero {
@@ -155,22 +129,12 @@
     position: relative;
     overflow: hidden;
   }
-
   .hero::before {
     content: '';
     position: absolute;
     top: -200px; left: -200px;
     width: 700px; height: 700px;
     background: radial-gradient(circle, rgba(0,229,192,0.07) 0%, transparent 70%);
-    pointer-events: none;
-  }
-
-  .hero::after {
-    content: '';
-    position: absolute;
-    bottom: -100px; right: -100px;
-    width: 500px; height: 500px;
-    background: radial-gradient(circle, rgba(0,229,192,0.04) 0%, transparent 70%);
     pointer-events: none;
   }
 
@@ -185,19 +149,13 @@
     margin-bottom: 36px;
     width: fit-content;
   }
-
   .hero-badge-dot {
     width: 6px; height: 6px;
     background: var(--teal);
     border-radius: 50%;
     animation: pulse 2s infinite;
   }
-
-  @keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.4; }
-  }
-
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
   .hero-badge span {
     font-family: var(--font-en);
     font-size: 12px;
@@ -208,102 +166,64 @@
   }
 
   .hero h1 {
-    font-family: var(--font-en);
-    font-size: clamp(44px, 6vw, 80px);
+    font-size: clamp(36px, 5vw, 64px);
     font-weight: 700;
-    line-height: 1.08;
-    letter-spacing: -0.03em;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
     color: var(--white);
     max-width: 760px;
     margin-bottom: 8px;
   }
-
   .hero h1 .accent { color: var(--teal); }
+  .hero h1 .strikethrough {
+    text-decoration: line-through;
+    color: var(--text3);
+    font-weight: 400;
+  }
 
   .hero-sub {
     font-size: clamp(15px, 1.6vw, 18px);
     color: var(--text2);
-    max-width: 520px;
+    max-width: 540px;
     margin: 24px 0 48px;
     line-height: 1.75;
     font-weight: 300;
   }
 
-  .hero-actions {
-    display: flex;
-    gap: 16px;
-    align-items: center;
-    flex-wrap: wrap;
-  }
+  .hero-actions { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
 
   .btn-primary {
     font-family: var(--font-en);
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 600;
-    padding: 14px 28px;
+    padding: 16px 32px;
     background: var(--teal);
     color: #060809;
     border: none;
     border-radius: 8px;
     cursor: pointer;
     text-decoration: none;
-    letter-spacing: 0.01em;
     transition: opacity 0.2s, transform 0.15s;
   }
-
   .btn-primary:hover { opacity: 0.9; transform: translateY(-1px); }
 
   .btn-ghost {
     font-family: var(--font-en);
     font-size: 14px;
     font-weight: 500;
-    padding: 13px 24px;
+    padding: 15px 24px;
     background: transparent;
     color: var(--text);
     border: 0.5px solid var(--border2);
     border-radius: 8px;
     cursor: pointer;
     text-decoration: none;
-    letter-spacing: 0.01em;
-    transition: border-color 0.2s, background 0.2s;
+    transition: border-color 0.2s;
   }
-
-  .btn-ghost:hover {
-    border-color: rgba(255,255,255,0.3);
-    background: rgba(255,255,255,0.04);
-  }
-
-  .hero-stats {
-    display: flex;
-    gap: 48px;
-    margin-top: 72px;
-    padding-top: 48px;
-    border-top: 0.5px solid var(--border);
-  }
-
-  .stat-item {}
-
-  .stat-num {
-    font-family: var(--font-en);
-    font-size: 32px;
-    font-weight: 700;
-    color: var(--white);
-    letter-spacing: -0.02em;
-  }
-
-  .stat-num span { color: var(--teal); }
-
-  .stat-label {
-    font-size: 13px;
-    color: var(--text3);
-    margin-top: 4px;
-    font-weight: 400;
-  }
+  .btn-ghost:hover { border-color: rgba(255,255,255,0.3); }
 
   /* ─── SECTION BASE ─── */
-  section {
-    padding: 100px 48px;
-  }
+  section { padding: 100px 48px; }
 
   .section-label {
     font-family: var(--font-en);
@@ -316,11 +236,10 @@
   }
 
   .section-title {
-    font-family: var(--font-en);
     font-size: clamp(28px, 3.5vw, 44px);
     font-weight: 700;
     line-height: 1.15;
-    letter-spacing: -0.025em;
+    letter-spacing: -0.02em;
     color: var(--white);
     max-width: 600px;
     margin-bottom: 16px;
@@ -329,22 +248,56 @@
   .section-desc {
     font-size: 15px;
     color: var(--text2);
-    max-width: 500px;
+    max-width: 520px;
     line-height: 1.8;
     margin-bottom: 60px;
     font-weight: 300;
   }
 
-  /* ─── SERVICES ─── */
-  #services {
+  /* ─── PAIN POINTS ─── */
+  #pain {
     background: var(--bg2);
     border-top: 0.5px solid var(--border);
     border-bottom: 0.5px solid var(--border);
   }
 
-  .services-grid {
+  .pain-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+  }
+
+  .pain-card {
+    background: var(--bg3);
+    border: 0.5px solid var(--border);
+    border-radius: 12px;
+    padding: 32px 28px;
+    transition: border-color 0.2s;
+  }
+  .pain-card:hover { border-color: rgba(0,229,192,0.2); }
+
+  .pain-emoji { font-size: 32px; margin-bottom: 16px; }
+
+  .pain-title {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 10px;
+  }
+
+  .pain-desc {
+    font-size: 14px;
+    color: var(--text2);
+    line-height: 1.75;
+    font-weight: 300;
+  }
+
+  /* ─── FEATURES ─── */
+  #features { background: var(--bg); }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 1px;
     background: var(--border);
     border: 0.5px solid var(--border);
@@ -352,218 +305,146 @@
     overflow: hidden;
   }
 
-  .service-card {
-    background: var(--bg2);
+  .feature-card {
+    background: var(--bg);
     padding: 40px 36px;
     transition: background 0.25s;
-    position: relative;
   }
+  .feature-card:hover { background: var(--bg3); }
 
-  .service-card:hover {
-    background: var(--bg3);
-  }
-
-  .service-card:hover .service-icon-wrap {
-    background: var(--teal-dim);
-    border-color: rgba(0,229,192,0.3);
-  }
-
-  .service-icon-wrap {
+  .feature-icon-wrap {
     width: 48px; height: 48px;
-    background: rgba(255,255,255,0.04);
-    border: 0.5px solid var(--border2);
+    background: var(--teal-dim);
+    border: 0.5px solid rgba(0,229,192,0.25);
     border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 24px;
-    transition: background 0.25s, border-color 0.25s;
+    font-size: 22px;
   }
 
-  .service-icon {
-    width: 22px; height: 22px;
-    color: var(--teal);
-  }
-
-  .service-title {
-    font-family: var(--font-en);
-    font-size: 17px;
-    font-weight: 600;
-    color: var(--white);
-    margin-bottom: 12px;
-    letter-spacing: -0.01em;
-  }
-
-  .service-desc {
-    font-size: 14px;
-    color: var(--text2);
-    line-height: 1.75;
-    font-weight: 300;
-  }
-
-  .service-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    margin-top: 20px;
-  }
-
-  .tag {
-    font-size: 11px;
-    font-family: var(--font-en);
-    font-weight: 500;
-    padding: 4px 10px;
-    background: rgba(255,255,255,0.05);
-    border: 0.5px solid var(--border);
-    border-radius: 100px;
-    color: var(--text3);
-    letter-spacing: 0.02em;
-  }
-
-  /* ─── HOW WE WORK ─── */
-  #process {
-    background: var(--bg);
-  }
-
-  .process-steps {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 32px;
-    position: relative;
-    margin-top: 8px;
-  }
-
-  .process-step {
-    position: relative;
-  }
-
-  .step-num {
-    font-family: var(--font-en);
-    font-size: 11px;
-    font-weight: 600;
-    color: var(--teal);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    margin-bottom: 16px;
-  }
-
-  .step-title {
-    font-family: var(--font-en);
+  .feature-title {
     font-size: 18px;
     font-weight: 600;
     color: var(--white);
     margin-bottom: 12px;
-    letter-spacing: -0.01em;
   }
 
-  .step-desc {
+  .feature-desc {
     font-size: 14px;
     color: var(--text2);
     line-height: 1.75;
     font-weight: 300;
   }
 
-  .step-line {
-    position: absolute;
-    top: 6px;
-    right: -16px;
-    width: 32px;
-    height: 1px;
-    background: linear-gradient(90deg, var(--border2), transparent);
-  }
-
-  /* ─── WHY ─── */
-  #why {
-    background: var(--bg2);
-    border-top: 0.5px solid var(--border);
-    border-bottom: 0.5px solid var(--border);
-  }
-
-  .why-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-  }
-
-  .why-card {
-    background: var(--bg3);
-    border: 0.5px solid var(--border);
-    border-radius: 12px;
-    padding: 32px 28px;
-    transition: border-color 0.2s;
-  }
-
-  .why-card:hover {
-    border-color: rgba(0,229,192,0.2);
-  }
-
-  .why-card.wide {
-    grid-column: 1 / -1;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 32px;
-    align-items: center;
-  }
-
-  .why-card-num {
-    font-family: var(--font-en);
-    font-size: 40px;
-    font-weight: 700;
-    color: var(--white);
-    letter-spacing: -0.04em;
-    margin-bottom: 8px;
-  }
-
-  .why-card-num span { color: var(--teal); }
-
-  .why-card-title {
-    font-family: var(--font-en);
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--white);
-    margin-bottom: 10px;
-  }
-
-  .why-card-desc {
+  .feature-highlight {
+    display: inline-block;
+    margin-top: 16px;
     font-size: 13px;
-    color: var(--text2);
-    line-height: 1.75;
-    font-weight: 300;
+    font-family: var(--font-en);
+    font-weight: 500;
+    color: var(--teal);
+    padding: 4px 12px;
+    background: var(--teal-dim);
+    border-radius: 100px;
   }
 
   /* ─── CTA ─── */
-  #contact {
-    background: var(--bg);
+  #cta {
+    background: var(--bg2);
+    border-top: 0.5px solid var(--border);
     text-align: center;
     padding: 120px 48px;
   }
 
-  .cta-wrap {
-    max-width: 640px;
-    margin: 0 auto;
-  }
+  .cta-wrap { max-width: 640px; margin: 0 auto; }
+  .cta-wrap .section-title { max-width: 100%; margin-left: auto; margin-right: auto; text-align: center; }
+  .cta-wrap .section-desc { max-width: 100%; text-align: center; margin-left: auto; margin-right: auto; }
+  .cta-actions { display: flex; gap: 16px; justify-content: center; margin-top: 8px; flex-wrap: wrap; }
 
-  .cta-wrap .section-title {
-    max-width: 100%;
-    margin-left: auto;
-    margin-right: auto;
+  /* ─── BUILD IN PUBLIC ─── */
+  #community {
+    background: var(--bg);
+    border-top: 0.5px solid var(--border);
     text-align: center;
+    padding: 100px 48px;
   }
 
-  .cta-wrap .section-desc {
-    max-width: 100%;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-  }
+  .community-wrap { max-width: 600px; margin: 0 auto; }
 
-  .cta-actions {
+  .threads-embed {
+    margin-top: 40px;
     display: flex;
-    gap: 16px;
-    justify-content: center;
-    margin-top: 8px;
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
   }
+
+  .threads-card {
+    background: var(--bg3);
+    border: 0.5px solid var(--border);
+    border-radius: 16px;
+    padding: 32px;
+    max-width: 480px;
+    text-align: left;
+  }
+
+  .threads-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .threads-avatar {
+    width: 40px; height: 40px;
+    background: var(--teal-dim);
+    border: 0.5px solid rgba(0,229,192,0.3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-en);
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--teal);
+  }
+
+  .threads-handle {
+    font-family: var(--font-en);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--white);
+  }
+
+  .threads-handle small {
+    display: block;
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--text3);
+  }
+
+  .threads-body {
+    font-size: 15px;
+    color: var(--text2);
+    line-height: 1.8;
+    font-weight: 300;
+  }
+
+  .threads-follow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 20px;
+    font-family: var(--font-en);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--teal);
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+  .threads-follow:hover { opacity: 0.8; }
 
   /* ─── FOOTER ─── */
   footer {
@@ -574,22 +455,14 @@
     align-items: center;
     background: var(--bg);
   }
-
   .footer-left .logo { font-size: 16px; }
-
   .footer-copy {
     font-size: 12px;
     color: var(--text3);
     font-family: var(--font-en);
     margin-top: 4px;
   }
-
-  .footer-links {
-    display: flex;
-    gap: 32px;
-    list-style: none;
-  }
-
+  .footer-links { display: flex; gap: 32px; list-style: none; }
   .footer-links a {
     font-size: 13px;
     color: var(--text3);
@@ -597,7 +470,6 @@
     font-family: var(--font-en);
     transition: color 0.2s;
   }
-
   .footer-links a:hover { color: var(--text2); }
 
   /* ─── SCROLL REVEAL ─── */
@@ -606,10 +478,7 @@
     transform: translateY(20px);
     transition: opacity 0.6s ease, transform 0.6s ease;
   }
-  .reveal.visible {
-    opacity: 1;
-    transform: none;
-  }
+  .reveal.visible { opacity: 1; transform: none; }
 
   /* ─── RESPONSIVE ─── */
   @media (max-width: 768px) {
@@ -619,11 +488,9 @@
     .hamburger { display: flex; }
     .hero { padding: 100px 24px 60px; }
     section { padding: 72px 24px; }
-    .hero-stats { flex-wrap: wrap; gap: 32px; }
-    .why-grid { grid-template-columns: 1fr; }
-    .why-card.wide { grid-template-columns: 1fr; }
+    .pain-grid { grid-template-columns: 1fr; }
     footer { flex-direction: column; gap: 20px; text-align: center; }
-    #contact { padding: 80px 24px; }
+    #cta, #community { padding: 80px 24px; }
   }
 </style>
 </head>
@@ -633,218 +500,147 @@
 <nav>
   <a href="#" class="logo">Nivora<span>.</span>AI</a>
   <ul class="nav-links">
-    <li><a href="#services">服務項目</a></li>
-    <li><a href="#process">合作流程</a></li>
-    <li><a href="#why">為何選擇我們</a></li>
+    <li><a href="#pain">痛點</a></li>
+    <li><a href="#features">功能</a></li>
+    <li><a href="#community">動態</a></li>
   </ul>
-  <a href="#contact" class="nav-cta">立即合作</a>
-  <button class="hamburger" onclick="toggleMobileMenu()" aria-label="選單">
+  <a href="https://line-requirement-bot-1.vercel.app" class="nav-cta" target="_blank">免費內測</a>
+  <button class="hamburger" onclick="toggleMobileMenu()" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
 </nav>
 
 <div class="mobile-menu" id="mobileMenu">
-  <a href="#services" onclick="closeMobileMenu()">服務項目</a>
-  <a href="#process" onclick="closeMobileMenu()">合作流程</a>
-  <a href="#why" onclick="closeMobileMenu()">為何選擇我們</a>
-  <a href="#contact" onclick="closeMobileMenu()">立即合作</a>
+  <a href="#pain" onclick="closeMobileMenu()">痛點</a>
+  <a href="#features" onclick="closeMobileMenu()">功能</a>
+  <a href="#community" onclick="closeMobileMenu()">動態</a>
+  <a href="https://line-requirement-bot-1.vercel.app" onclick="closeMobileMenu()">免費內測</a>
 </div>
 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-badge">
     <div class="hero-badge-dot"></div>
-    <span>AI-Powered Business Automation</span>
+    <span>Beta Testing Now</span>
   </div>
 
   <h1>
-    讓 AI 替你<br>
-    <span class="accent">自動化一切</span>
+    <span class="strikethrough">30 分鐘</span> <span class="accent">3 分鐘</span><br>
+    掌握群組所有重點
   </h1>
 
   <p class="hero-sub">
-    Nivora AI 整合行銷內容生產、系統自動化與客製化 AI 應用，<br>
-    讓你的商業運作更快、更聰明、更有競爭力。
+    LINE 群組訊息自動整理，AI 幫你抓出重點、追蹤待辦、產出摘要。<br>
+    讓老闆專注做決定，不再被訊息轟炸。
   </p>
 
   <div class="hero-actions">
-    <a href="#contact" class="btn-primary">開始合作 →</a>
-    <a href="#services" class="btn-ghost">瞭解服務項目</a>
+    <a href="https://line-requirement-bot-1.vercel.app" class="btn-primary" target="_blank">申請免費內測 &rarr;</a>
+    <a href="#features" class="btn-ghost">看看怎麼用</a>
   </div>
+</section>
 
-  <div class="hero-stats">
-    <div class="stat-item">
-      <div class="stat-num">4<span>+</span></div>
-      <div class="stat-label">核心服務項目</div>
+<!-- PAIN POINTS -->
+<section id="pain">
+  <div class="section-label">The Problem</div>
+  <h2 class="section-title">老闆的 LINE 日常</h2>
+  <p class="section-desc">每天 8 個群組、300 則訊息。重要的事被洗掉，花 30 分鐘翻訊息只為了搞清楚「現在進度到哪」。</p>
+
+  <div class="pain-grid">
+    <div class="pain-card reveal">
+      <div class="pain-emoji">&#128165;</div>
+      <div class="pain-title">訊息轟炸</div>
+      <div class="pain-desc">同時管 3-8 個 LINE 群組，重要決策和閒聊混在一起，根本分不清哪些要看。</div>
     </div>
-    <div class="stat-item">
-      <div class="stat-num">AI<span>×</span>Auto</div>
-      <div class="stat-label">自動化核心架構</div>
+    <div class="pain-card reveal">
+      <div class="pain-emoji">&#128564;</div>
+      <div class="pain-title">上下文斷裂</div>
+      <div class="pain-desc">跨群組追同一件事，訊息散落各處。花 20 分鐘拼湊，還怕遺漏關鍵資訊。</div>
     </div>
-    <div class="stat-item">
-      <div class="stat-num">24<span>/7</span></div>
-      <div class="stat-label">系統持續運作</div>
+    <div class="pain-card reveal">
+      <div class="pain-emoji">&#9200;</div>
+      <div class="pain-title">手動整理耗時</div>
+      <div class="pain-desc">截圖、複製、貼上、重新組織。每天花 30 分鐘做的事，AI 只需要 3 分鐘。</div>
+    </div>
+    <div class="pain-card reveal">
+      <div class="pain-emoji">&#128168;</div>
+      <div class="pain-title">重要事項遺漏</div>
+      <div class="pain-desc">誰答應了什麼？什麼時候要交？關鍵承諾被幾百則訊息淹沒，直到 deadline 才發現。</div>
     </div>
   </div>
 </section>
 
-<!-- SERVICES -->
-<section id="services">
-  <div class="section-label">Services</div>
-  <h2 class="section-title">我們能為你做什麼</h2>
-  <p class="section-desc">從內容生產到系統開發，Nivora AI 提供完整的 AI 解決方案，讓每一個業務環節都更有效率。</p>
+<!-- FEATURES -->
+<section id="features">
+  <div class="section-label">Features</div>
+  <h2 class="section-title">三個功能，一鍵搞定</h2>
+  <p class="section-desc">不用改變你的 LINE 使用習慣。加入 Bot，打開 Dashboard，重點自動整理好。</p>
 
-  <div class="services-grid">
-    <div class="service-card reveal">
-      <div class="service-icon-wrap">
-        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-          <path d="M15 10l4.553-2.069A1 1 0 0121 8.87v6.26a1 1 0 01-1.447.894L15 14M3 8a2 2 0 012-2h8a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z"/>
-        </svg>
-      </div>
-      <div class="service-title">行銷內容生產</div>
-      <div class="service-desc">AI 驅動的社群貼文、影片腳本與宣傳素材，快速產出高品質行銷內容，降低創作成本。</div>
-      <div class="service-tags">
-        <span class="tag">社群貼文</span>
-        <span class="tag">AI 影片</span>
-        <span class="tag">宣傳素材</span>
-      </div>
+  <div class="features-grid">
+    <div class="feature-card reveal">
+      <div class="feature-icon-wrap">&#128203;</div>
+      <div class="feature-title">每日群組摘要</div>
+      <div class="feature-desc">AI 自動整理每個群組的對話重點。2-3 句話告訴你今天發生了什麼，不用再一則一則翻。</div>
+      <div class="feature-highlight">Save 30 min/day</div>
     </div>
-
-    <div class="service-card reveal">
-      <div class="service-icon-wrap">
-        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-          <path d="M20 7H4a2 2 0 00-2 2v6a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/>
-          <path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/>
-        </svg>
-      </div>
-      <div class="service-title">商品與服務內容支援</div>
-      <div class="service-desc">產品文案、服務說明、轉換型內容撰寫，讓你的商品被看見、被理解、被選擇。</div>
-      <div class="service-tags">
-        <span class="tag">產品文案</span>
-        <span class="tag">轉換優化</span>
-        <span class="tag">SEO 內容</span>
-      </div>
+    <div class="feature-card reveal">
+      <div class="feature-icon-wrap">&#9989;</div>
+      <div class="feature-title">待辦事項追蹤</div>
+      <div class="feature-desc">自動從對話中抓出「誰要做什麼、什麼時候」。不再遺漏任何承諾和 deadline。</div>
+      <div class="feature-highlight">Zero Manual Work</div>
     </div>
-
-    <div class="service-card reveal">
-      <div class="service-icon-wrap">
-        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-          <path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/>
-        </svg>
-      </div>
-      <div class="service-title">自動化系統開發</div>
-      <div class="service-desc">LINE OA 自動回覆、客服流程自動化、工作流程整合，讓系統 24/7 替你工作，無需人工介入。</div>
-      <div class="service-tags">
-        <span class="tag">LINE OA</span>
-        <span class="tag">工作流程</span>
-        <span class="tag">自動回覆</span>
-      </div>
-    </div>
-
-    <div class="service-card reveal">
-      <div class="service-icon-wrap">
-        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-          <path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
-        </svg>
-      </div>
-      <div class="service-title">客製化 AI 應用開發</div>
-      <div class="service-desc">針對你的業務需求打造專屬 AI 工具，從概念到上線，一站式開發高效能的 AI 解決方案。</div>
-      <div class="service-tags">
-        <span class="tag">AI Agent</span>
-        <span class="tag">客製開發</span>
-        <span class="tag">系統整合</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PROCESS -->
-<section id="process">
-  <div class="section-label">How We Work</div>
-  <h2 class="section-title">合作流程</h2>
-  <p class="section-desc">清晰、快速、結果導向。從需求到交付，每一步都有明確的目標與產出。</p>
-
-  <div class="process-steps">
-    <div class="process-step reveal">
-      <div class="step-num">Step 01</div>
-      <div class="step-title">需求理解</div>
-      <div class="step-desc">深入了解你的商業目標、現有痛點與期望產出，建立清晰的任務框架。</div>
-    </div>
-    <div class="process-step reveal">
-      <div class="step-num">Step 02</div>
-      <div class="step-title">策略規劃</div>
-      <div class="step-desc">制定最適合的解決方案，拆解執行模組，確認優先順序與里程碑。</div>
-    </div>
-    <div class="process-step reveal">
-      <div class="step-num">Step 03</div>
-      <div class="step-title">快速交付</div>
-      <div class="step-desc">以敏捷方式產出可用版本，快速驗證，持續迭代優化至最佳狀態。</div>
-    </div>
-    <div class="process-step reveal">
-      <div class="step-num">Step 04</div>
-      <div class="step-title">持續優化</div>
-      <div class="step-desc">上線後持續追蹤效果，根據數據反饋調整策略，確保長期價值。</div>
-    </div>
-  </div>
-</section>
-
-<!-- WHY -->
-<section id="why">
-  <div class="section-label">Why Nivora AI</div>
-  <h2 class="section-title">為何選擇我們</h2>
-  <p class="section-desc">我們不只是提供工具，而是作為你的 AI 策略夥伴，與你一起打造自動化的商業未來。</p>
-
-  <div class="why-grid">
-    <div class="why-card reveal">
-      <div class="why-card-num">AI<span>×</span>3</div>
-      <div class="why-card-title">三條業務線整合</div>
-      <div class="why-card-desc">內容、系統、開發一站處理，無需對接多家供應商，降低溝通成本。</div>
-    </div>
-    <div class="why-card reveal">
-      <div class="why-card-num">48<span>h</span></div>
-      <div class="why-card-title">快速初版交付</div>
-      <div class="why-card-desc">不等待、不拖延。資訊充足的情況下，48 小時內提供可用初版。</div>
-    </div>
-    <div class="why-card wide reveal">
-      <div>
-        <div class="why-card-title" style="font-size:20px; margin-bottom:16px;">以結果為導向的執行模式</div>
-        <div class="why-card-desc" style="font-size:14px; line-height:1.85;">
-          我們的決策模式以商業結果為核心——每個輸出都對應明確的目標（曝光、轉換或系統效率）。當資訊不足時，我們先做合理假設並產出可用版本，而不是停在問題上等待答案。
-        </div>
-      </div>
-      <div style="display:flex; flex-direction:column; gap:16px;">
-        <div style="display:flex; align-items:center; gap:12px;">
-          <div style="width:8px; height:8px; background:var(--teal); border-radius:50%; flex-shrink:0;"></div>
-          <span style="font-size:14px; color:var(--text2);">先產出，再優化</span>
-        </div>
-        <div style="display:flex; align-items:center; gap:12px;">
-          <div style="width:8px; height:8px; background:var(--teal); border-radius:50%; flex-shrink:0;"></div>
-          <span style="font-size:14px; color:var(--text2);">商業目標優先於完美主義</span>
-        </div>
-        <div style="display:flex; align-items:center; gap:12px;">
-          <div style="width:8px; height:8px; background:var(--teal); border-radius:50%; flex-shrink:0;"></div>
-          <span style="font-size:14px; color:var(--text2);">透明溝通，無黑盒作業</span>
-        </div>
-        <div style="display:flex; align-items:center; gap:12px;">
-          <div style="width:8px; height:8px; background:var(--teal); border-radius:50%; flex-shrink:0;"></div>
-          <span style="font-size:14px; color:var(--text2);">系統建立後持續自動運作</span>
-        </div>
-      </div>
+    <div class="feature-card reveal">
+      <div class="feature-icon-wrap">&#9889;</div>
+      <div class="feature-title">會議前一鍵 Briefing</div>
+      <div class="feature-desc">開會前 3 分鐘打開 Dashboard，AI 幫你準備好摘要 + 待確認事項 + 決策清單。</div>
+      <div class="feature-highlight">Meeting Ready</div>
     </div>
   </div>
 </section>
 
 <!-- CTA -->
-<section id="contact">
+<section id="cta">
   <div class="cta-wrap">
     <div class="section-label" style="text-align:center;">Get Started</div>
-    <h2 class="section-title">準備好讓 AI 替你工作了嗎？</h2>
+    <h2 class="section-title">免費內測中，名額有限</h2>
     <p class="section-desc">
-      告訴我們你的需求，我們會在最短時間內提供可執行的解決方案。
+      我們正在尋找每天被 LINE 群組轟炸的中小企老闆和 PM。<br>
+      免費試用，幫我們驗證產品，也幫你省下每天 30 分鐘。
     </p>
     <div class="cta-actions">
-      <a href="mailto:peakqi.ai@gmail.com" class="btn-primary">聯絡我們</a>
-      <a href="#services" class="btn-ghost">了解更多服務</a>
+      <a href="https://line-requirement-bot-1.vercel.app" class="btn-primary" target="_blank">立即免費試用 &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- BUILD IN PUBLIC -->
+<section id="community">
+  <div class="community-wrap">
+    <div class="section-label" style="text-align:center;">Build in Public</div>
+    <h2 class="section-title" style="max-width:100%; text-align:center; margin-left:auto; margin-right:auto;">我們公開打造這個產品</h2>
+    <p class="section-desc" style="max-width:100%; text-align:center; margin-left:auto; margin-right:auto;">
+      從第一行 code 到第一個用戶，全程公開。追蹤我們的 Threads 看開發日記。
+    </p>
+
+    <div class="threads-embed">
+      <div class="threads-card">
+        <div class="threads-header">
+          <div class="threads-avatar">N</div>
+          <div class="threads-handle">
+            @nivoraai
+            <small>Nivora AI</small>
+          </div>
+        </div>
+        <div class="threads-body">
+          我們正在做一個東西，給每天被 LINE 轟炸的中小企老闆用。<br><br>
+          不是另一個訊息軟體，不需要改變任何習慣。<br>
+          就是把你 LINE 群組裡重要的東西，自動整理好。<br><br>
+          這週開始找人測試。
+        </div>
+        <a href="https://www.threads.net/@nivoraai" target="_blank" class="threads-follow">
+          Follow @nivoraai on Threads &rarr;
+        </a>
+      </div>
     </div>
   </div>
 </section>
@@ -853,12 +649,12 @@
 <footer>
   <div class="footer-left">
     <a href="#" class="logo">Nivora<span>.</span>AI</a>
-    <div class="footer-copy">© 2026 Nivora AI. All rights reserved.</div>
+    <div class="footer-copy">&copy; 2026 Nivora AI. All rights reserved.</div>
   </div>
   <ul class="footer-links">
-    <li><a href="#services">Services</a></li>
-    <li><a href="#process">Process</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="#features">Features</a></li>
+    <li><a href="#community">Community</a></li>
+    <li><a href="mailto:peakqi.ai@gmail.com">Contact</a></li>
   </ul>
 </footer>
 
@@ -877,7 +673,6 @@ function toggleMobileMenu() {
   document.getElementById('mobileMenu').classList.toggle('open');
   document.querySelector('.hamburger').classList.toggle('active');
 }
-
 function closeMobileMenu() {
   document.getElementById('mobileMenu').classList.remove('open');
   document.querySelector('.hamburger').classList.remove('active');
