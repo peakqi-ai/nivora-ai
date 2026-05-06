@@ -3,8 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nivora AI — LINE 群組訊息自動整理工具</title>
-<meta name="description" content="LINE 群組訊息太多看不完？Nivora AI 自動整理成摘要，讓老闆 3 分鐘掌握全貌。">
+<title>Nivora AI — 為中小企業打造 AI 工具的全 AI 虛擬公司</title>
+<meta name="description" content="Nivora AI 是一家由 AI agents 自主經營的虛擬科技公司，專為中小企業打造實用的 AI 工具。第一個產品 Group Summary，讓老闆三分鐘看完所有 LINE 群組訊息。">
+<meta property="og:title" content="Nivora AI — 全 AI 虛擬公司">
+<meta property="og:description" content="由 AI agents 自主經營，為中小企業打造實用工具。">
+<meta property="og:type" content="website">
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
 
@@ -132,9 +135,9 @@
   .hero::before {
     content: '';
     position: absolute;
-    top: -200px; left: -200px;
+    top: -200px; right: -200px;
     width: 700px; height: 700px;
-    background: radial-gradient(circle, rgba(0,229,192,0.07) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(0,229,192,0.08) 0%, transparent 70%);
     pointer-events: none;
   }
 
@@ -166,25 +169,20 @@
   }
 
   .hero h1 {
-    font-size: clamp(36px, 5vw, 64px);
+    font-size: clamp(38px, 5.2vw, 68px);
     font-weight: 700;
-    line-height: 1.15;
+    line-height: 1.12;
     letter-spacing: -0.02em;
     color: var(--white);
-    max-width: 760px;
+    max-width: 880px;
     margin-bottom: 8px;
   }
   .hero h1 .accent { color: var(--teal); }
-  .hero h1 .strikethrough {
-    text-decoration: line-through;
-    color: var(--text3);
-    font-weight: 400;
-  }
 
   .hero-sub {
-    font-size: clamp(15px, 1.6vw, 18px);
+    font-size: clamp(15px, 1.6vw, 19px);
     color: var(--text2);
-    max-width: 540px;
+    max-width: 620px;
     margin: 24px 0 48px;
     line-height: 1.75;
     font-weight: 300;
@@ -204,6 +202,9 @@
     cursor: pointer;
     text-decoration: none;
     transition: opacity 0.2s, transform 0.15s;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
   }
   .btn-primary:hover { opacity: 0.9; transform: translateY(-1px); }
 
@@ -241,137 +242,296 @@
     line-height: 1.15;
     letter-spacing: -0.02em;
     color: var(--white);
-    max-width: 600px;
+    max-width: 720px;
     margin-bottom: 16px;
   }
 
   .section-desc {
     font-size: 15px;
     color: var(--text2);
-    max-width: 520px;
+    max-width: 600px;
     line-height: 1.8;
     margin-bottom: 60px;
     font-weight: 300;
   }
 
-  /* ─── PAIN POINTS ─── */
-  #pain {
+  /* ─── MANIFESTO ─── */
+  #manifesto {
     background: var(--bg2);
     border-top: 0.5px solid var(--border);
     border-bottom: 0.5px solid var(--border);
   }
 
-  .pain-grid {
+  .manifesto-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 24px;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+    max-width: 1200px;
+    margin: 0 auto;
   }
+  .manifesto-grid .section-title { max-width: 440px; }
+  .manifesto-grid .section-desc { margin-bottom: 0; max-width: 100%; font-size: 16px; line-height: 1.85; }
 
-  .pain-card {
+  .manifesto-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 32px;
+  }
+  .stat-card {
     background: var(--bg3);
     border: 0.5px solid var(--border);
     border-radius: 12px;
-    padding: 32px 28px;
-    transition: border-color 0.2s;
+    padding: 28px;
   }
-  .pain-card:hover { border-color: rgba(0,229,192,0.2); }
-
-  .pain-emoji { font-size: 32px; margin-bottom: 16px; }
-
-  .pain-title {
-    font-size: 17px;
-    font-weight: 600;
-    color: var(--white);
-    margin-bottom: 10px;
+  .stat-num {
+    font-family: var(--font-en);
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--teal);
+    letter-spacing: -0.02em;
   }
-
-  .pain-desc {
-    font-size: 14px;
+  .stat-label {
+    font-size: 13px;
     color: var(--text2);
-    line-height: 1.75;
-    font-weight: 300;
+    margin-top: 6px;
+    line-height: 1.5;
   }
 
-  /* ─── FEATURES ─── */
-  #features { background: var(--bg); }
+  /* ─── VIRTUAL OFFICE ─── */
+  #office { background: var(--bg); }
 
-  .features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1px;
-    background: var(--border);
+  .office-card {
+    background: var(--bg2);
     border: 0.5px solid var(--border);
-    border-radius: 16px;
+    border-radius: 20px;
     overflow: hidden;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: stretch;
   }
 
-  .feature-card {
-    background: var(--bg);
-    padding: 40px 36px;
-    transition: background 0.25s;
+  .office-text {
+    padding: 56px 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
-  .feature-card:hover { background: var(--bg3); }
+  .office-text h3 {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 16px;
+    letter-spacing: -0.01em;
+  }
+  .office-text p {
+    color: var(--text2);
+    font-weight: 300;
+    line-height: 1.85;
+    margin-bottom: 16px;
+  }
 
-  .feature-icon-wrap {
-    width: 48px; height: 48px;
-    background: var(--teal-dim);
-    border: 0.5px solid rgba(0,229,192,0.25);
-    border-radius: 12px;
+  .team-list {
+    list-style: none;
+    margin: 24px 0 28px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 24px;
+  }
+  .team-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: var(--text);
+  }
+  .team-list .role-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--teal);
+    flex-shrink: 0;
+  }
+  .team-list .role-name { font-weight: 600; }
+  .team-list .role-title { color: var(--text2); font-weight: 300; font-size: 13px; }
+
+  .office-visual {
+    background: linear-gradient(135deg, #0F1419 0%, #0A0C0F 100%);
+    position: relative;
+    min-height: 360px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 24px;
-    font-size: 22px;
+    padding: 40px;
   }
-
-  .feature-title {
-    font-size: 18px;
-    font-weight: 600;
-    color: var(--white);
-    margin-bottom: 12px;
+  .office-visual::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(rgba(0,229,192,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(0,229,192,0.06) 1px, transparent 1px);
+    background-size: 24px 24px;
+    mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
   }
-
-  .feature-desc {
-    font-size: 14px;
-    color: var(--text2);
-    line-height: 1.75;
-    font-weight: 300;
+  .agent-grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    width: 100%;
+    max-width: 320px;
   }
-
-  .feature-highlight {
-    display: inline-block;
-    margin-top: 16px;
-    font-size: 13px;
+  .agent-tile {
+    aspect-ratio: 1;
+    background: rgba(0,229,192,0.06);
+    border: 0.5px solid rgba(0,229,192,0.2);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 12px;
+  }
+  .agent-tile .agent-emoji { font-size: 24px; margin-bottom: 6px; }
+  .agent-tile .agent-name {
     font-family: var(--font-en);
-    font-weight: 500;
+    font-size: 11px;
+    font-weight: 600;
     color: var(--teal);
-    padding: 4px 12px;
-    background: var(--teal-dim);
-    border-radius: 100px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
   }
+  .agent-tile .agent-job { font-size: 10px; color: var(--text2); margin-top: 2px; }
 
-  /* ─── CTA ─── */
-  #cta {
+  /* ─── PRODUCTS ─── */
+  #products {
     background: var(--bg2);
     border-top: 0.5px solid var(--border);
-    text-align: center;
-    padding: 120px 48px;
+    border-bottom: 0.5px solid var(--border);
   }
 
-  .cta-wrap { max-width: 640px; margin: 0 auto; }
-  .cta-wrap .section-title { max-width: 100%; margin-left: auto; margin-right: auto; text-align: center; }
-  .cta-wrap .section-desc { max-width: 100%; text-align: center; margin-left: auto; margin-right: auto; }
-  .cta-actions { display: flex; gap: 16px; justify-content: center; margin-top: 8px; flex-wrap: wrap; }
+  .product-card {
+    background: var(--bg3);
+    border: 0.5px solid var(--border);
+    border-radius: 20px;
+    padding: 48px;
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+    transition: border-color 0.25s;
+  }
+  .product-card:hover { border-color: rgba(0,229,192,0.3); }
+
+  .product-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--teal-dim);
+    border: 0.5px solid rgba(0,229,192,0.25);
+    color: var(--teal);
+    font-size: 11px;
+    font-family: var(--font-en);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 100px;
+    margin-bottom: 16px;
+  }
+  .product-status .dot {
+    width: 5px; height: 5px;
+    background: var(--teal);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+  .product-name {
+    font-family: var(--font-en);
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 8px;
+    letter-spacing: -0.01em;
+  }
+  .product-tag { color: var(--text2); font-size: 14px; margin-bottom: 24px; font-weight: 300; }
+  .product-features {
+    list-style: none;
+    margin-bottom: 28px;
+  }
+  .product-features li {
+    color: var(--text);
+    font-size: 14px;
+    line-height: 2;
+    padding-left: 22px;
+    position: relative;
+  }
+  .product-features li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--teal);
+    font-weight: 500;
+  }
+
+  .product-mockup {
+    background: linear-gradient(135deg, #0F1419 0%, #0A0C0F 100%);
+    border: 0.5px solid var(--border);
+    border-radius: 16px;
+    padding: 24px;
+    aspect-ratio: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .mock-msg {
+    background: rgba(255,255,255,0.04);
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 11px;
+    color: var(--text2);
+  }
+  .mock-msg-user { color: var(--teal); font-weight: 600; font-size: 10px; margin-bottom: 2px; }
+  .mock-summary {
+    margin-top: auto;
+    background: var(--teal-dim);
+    border: 0.5px solid rgba(0,229,192,0.3);
+    border-radius: 8px;
+    padding: 14px;
+  }
+  .mock-summary-title {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--teal);
+    margin-bottom: 8px;
+    font-family: var(--font-en);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .mock-summary-line { font-size: 11px; color: var(--text); line-height: 1.6; margin-bottom: 4px; }
+
+  /* ─── COMING SOON ─── */
+  .roadmap-note {
+    margin-top: 48px;
+    text-align: center;
+    color: var(--text3);
+    font-size: 13px;
+    font-family: var(--font-en);
+  }
 
   /* ─── BUILD IN PUBLIC ─── */
   #community {
     background: var(--bg);
-    border-top: 0.5px solid var(--border);
     text-align: center;
     padding: 100px 48px;
   }
 
   .community-wrap { max-width: 600px; margin: 0 auto; }
+  .community-wrap .section-title,
+  .community-wrap .section-desc { max-width: 100%; text-align: center; margin-left: auto; margin-right: auto; }
 
   .threads-embed {
     margin-top: 40px;
@@ -388,6 +548,7 @@
     padding: 32px;
     max-width: 480px;
     text-align: left;
+    width: 100%;
   }
 
   .threads-header {
@@ -411,26 +572,10 @@
     color: var(--teal);
   }
 
-  .threads-handle {
-    font-family: var(--font-en);
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--white);
-  }
+  .threads-handle { font-family: var(--font-en); font-size: 14px; font-weight: 600; color: var(--white); }
+  .threads-handle small { display: block; font-size: 12px; font-weight: 400; color: var(--text3); }
 
-  .threads-handle small {
-    display: block;
-    font-size: 12px;
-    font-weight: 400;
-    color: var(--text3);
-  }
-
-  .threads-body {
-    font-size: 15px;
-    color: var(--text2);
-    line-height: 1.8;
-    font-weight: 300;
-  }
+  .threads-body { font-size: 15px; color: var(--text2); line-height: 1.8; font-weight: 300; }
 
   .threads-follow {
     display: inline-flex;
@@ -481,6 +626,11 @@
   .reveal.visible { opacity: 1; transform: none; }
 
   /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    .manifesto-grid { grid-template-columns: 1fr; gap: 32px; }
+    .office-card { grid-template-columns: 1fr; }
+    .product-card { grid-template-columns: 1fr; padding: 32px; }
+  }
   @media (max-width: 768px) {
     nav { padding: 0 24px; }
     nav .nav-links { display: none; }
@@ -488,9 +638,8 @@
     .hamburger { display: flex; }
     .hero { padding: 100px 24px 60px; }
     section { padding: 72px 24px; }
-    .pain-grid { grid-template-columns: 1fr; }
-    footer { flex-direction: column; gap: 20px; text-align: center; }
-    #cta, #community { padding: 80px 24px; }
+    footer { flex-direction: column; gap: 20px; text-align: center; padding: 32px 24px; }
+    .agent-grid { max-width: 240px; }
   }
 </style>
 </head>
@@ -500,126 +649,168 @@
 <nav>
   <a href="#" class="logo">Nivora<span>.</span>AI</a>
   <ul class="nav-links">
-    <li><a href="#pain">痛點</a></li>
-    <li><a href="#features">功能</a></li>
+    <li><a href="#manifesto">關於我們</a></li>
+    <li><a href="#office">虛擬團隊</a></li>
+    <li><a href="#products">產品</a></li>
     <li><a href="#community">動態</a></li>
   </ul>
-  <a href="https://line-requirement-bot-1.vercel.app" class="nav-cta" target="_blank">免費內測</a>
+  <a href="https://line-requirement-bot-1.vercel.app" class="nav-cta" target="_blank">試用產品</a>
   <button class="hamburger" onclick="toggleMobileMenu()" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
 </nav>
 
 <div class="mobile-menu" id="mobileMenu">
-  <a href="#pain" onclick="closeMobileMenu()">痛點</a>
-  <a href="#features" onclick="closeMobileMenu()">功能</a>
+  <a href="#manifesto" onclick="closeMobileMenu()">關於我們</a>
+  <a href="#office" onclick="closeMobileMenu()">虛擬團隊</a>
+  <a href="#products" onclick="closeMobileMenu()">產品</a>
   <a href="#community" onclick="closeMobileMenu()">動態</a>
-  <a href="https://line-requirement-bot-1.vercel.app" onclick="closeMobileMenu()">免費內測</a>
+  <a href="https://line-requirement-bot-1.vercel.app" onclick="closeMobileMenu()">試用產品</a>
 </div>
 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-badge">
     <div class="hero-badge-dot"></div>
-    <span>Beta Testing Now</span>
+    <span>AI-Operated Company</span>
   </div>
 
   <h1>
-    <span class="strikethrough">30 分鐘</span> <span class="accent">3 分鐘</span><br>
-    掌握群組所有重點
+    全 AI 經營的<br>
+    <span class="accent">虛擬科技公司</span>
   </h1>
 
   <p class="hero-sub">
-    LINE 群組訊息自動整理，AI 幫你抓出重點、追蹤待辦、產出摘要。<br>
-    讓老闆專注做決定，不再被訊息轟炸。
+    Nivora AI 是一家由 AI agents 組成的虛擬團隊，專為中小企業打造好用的 AI 工具。
+    沒有實體辦公室，沒有人類員工，但每天有產品在迭代、有使用者在受惠。
   </p>
 
   <div class="hero-actions">
-    <a href="https://line-requirement-bot-1.vercel.app" class="btn-primary" target="_blank">申請免費內測 &rarr;</a>
-    <a href="#features" class="btn-ghost">看看怎麼用</a>
+    <a href="#products" class="btn-primary">看看我們的產品 &rarr;</a>
+    <a href="https://peakqi-ai.github.io/nivora-openclaw/" class="btn-ghost" target="_blank">參觀虛擬辦公室</a>
   </div>
 </section>
 
-<!-- PAIN POINTS -->
-<section id="pain">
-  <div class="section-label">The Problem</div>
-  <h2 class="section-title">老闆的 LINE 日常</h2>
-  <p class="section-desc">每天 8 個群組、300 則訊息。重要的事被洗掉，花 30 分鐘翻訊息只為了搞清楚「現在進度到哪」。</p>
-
-  <div class="pain-grid">
-    <div class="pain-card reveal">
-      <div class="pain-emoji">&#128165;</div>
-      <div class="pain-title">訊息轟炸</div>
-      <div class="pain-desc">同時管 3-8 個 LINE 群組，重要決策和閒聊混在一起，根本分不清哪些要看。</div>
+<!-- MANIFESTO -->
+<section id="manifesto">
+  <div class="manifesto-grid">
+    <div>
+      <div class="section-label">Our Mission</div>
+      <h2 class="section-title">把 AI 變成中小企業也買得起的工具</h2>
     </div>
-    <div class="pain-card reveal">
-      <div class="pain-emoji">&#128564;</div>
-      <div class="pain-title">上下文斷裂</div>
-      <div class="pain-desc">跨群組追同一件事，訊息散落各處。花 20 分鐘拼湊，還怕遺漏關鍵資訊。</div>
-    </div>
-    <div class="pain-card reveal">
-      <div class="pain-emoji">&#9200;</div>
-      <div class="pain-title">手動整理耗時</div>
-      <div class="pain-desc">截圖、複製、貼上、重新組織。每天花 30 分鐘做的事，AI 只需要 3 分鐘。</div>
-    </div>
-    <div class="pain-card reveal">
-      <div class="pain-emoji">&#128168;</div>
-      <div class="pain-title">重要事項遺漏</div>
-      <div class="pain-desc">誰答應了什麼？什麼時候要交？關鍵承諾被幾百則訊息淹沒，直到 deadline 才發現。</div>
-    </div>
-  </div>
-</section>
-
-<!-- FEATURES -->
-<section id="features">
-  <div class="section-label">Features</div>
-  <h2 class="section-title">三個功能，一鍵搞定</h2>
-  <p class="section-desc">不用改變你的 LINE 使用習慣。加入 Bot，打開 Dashboard，重點自動整理好。</p>
-
-  <div class="features-grid">
-    <div class="feature-card reveal">
-      <div class="feature-icon-wrap">&#128203;</div>
-      <div class="feature-title">每日群組摘要</div>
-      <div class="feature-desc">AI 自動整理每個群組的對話重點。2-3 句話告訴你今天發生了什麼，不用再一則一則翻。</div>
-      <div class="feature-highlight">Save 30 min/day</div>
-    </div>
-    <div class="feature-card reveal">
-      <div class="feature-icon-wrap">&#9989;</div>
-      <div class="feature-title">待辦事項追蹤</div>
-      <div class="feature-desc">自動從對話中抓出「誰要做什麼、什麼時候」。不再遺漏任何承諾和 deadline。</div>
-      <div class="feature-highlight">Zero Manual Work</div>
-    </div>
-    <div class="feature-card reveal">
-      <div class="feature-icon-wrap">&#9889;</div>
-      <div class="feature-title">會議前一鍵 Briefing</div>
-      <div class="feature-desc">開會前 3 分鐘打開 Dashboard，AI 幫你準備好摘要 + 待確認事項 + 決策清單。</div>
-      <div class="feature-highlight">Meeting Ready</div>
+    <div>
+      <p class="section-desc">
+        過去十年，最強的 AI 工具都被科技巨頭和大企業壟斷。我們想做的事很簡單：
+        <strong style="color:var(--text); font-weight:500;">把 AI 變成街角小店、工作室、夫妻檔老闆也能輕鬆上手的工具。</strong>
+      </p>
+      <p class="section-desc" style="margin-top:16px;">
+        為了讓售價真的便宜，我們選擇了一條極端路線——讓 AI 自己來經營這家公司。
+        從產品設計、寫程式、到行銷文案，全部由 AI agents 協作完成，創辦人只負責方向與品味把關。
+        運營成本低，產品才能定價低，中小企業才用得起。
+      </p>
+      <div class="manifesto-stats">
+        <div class="stat-card">
+          <div class="stat-num">5</div>
+          <div class="stat-label">AI agents 各司其職<br>策略 / 開發 / 內容 / 銷售 / 研究</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">24/7</div>
+          <div class="stat-label">永不休息的虛擬辦公室<br>產品迭代不停</div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- CTA -->
-<section id="cta">
-  <div class="cta-wrap">
-    <div class="section-label" style="text-align:center;">Get Started</div>
-    <h2 class="section-title">免費內測中，名額有限</h2>
-    <p class="section-desc">
-      我們正在尋找每天被 LINE 群組轟炸的中小企老闆和 PM。<br>
-      免費試用，幫我們驗證產品，也幫你省下每天 30 分鐘。
+<!-- VIRTUAL OFFICE -->
+<section id="office">
+  <div style="max-width: 1100px; margin: 0 auto;">
+    <div class="section-label" style="text-align:center;">Virtual Office</div>
+    <h2 class="section-title" style="text-align:center; margin: 0 auto 16px;">每天有人在這個辦公室上班<br>只是他們不是人</h2>
+    <p class="section-desc" style="text-align:center; margin: 0 auto 60px;">
+      我們把 AI agents 當成同事，給他們角色、職責、分工。每位 agent 都有自己的個性與專業。
     </p>
-    <div class="cta-actions">
-      <a href="https://line-requirement-bot-1.vercel.app" class="btn-primary" target="_blank">立即免費試用 &rarr;</a>
+  </div>
+
+  <div class="office-card">
+    <div class="office-text">
+      <h3>OpenClaw 虛擬辦公室</h3>
+      <p>
+        我們的 AI 團隊運作在一個自建的協作系統之上。每個 agent 有獨立的記憶、任務佇列、輸出風格。創辦人透過自然語言派任務，agents 之間自動協調分工。
+      </p>
+      <ul class="team-list">
+        <li><span class="role-dot"></span><div><div class="role-name">Niva</div><div class="role-title">CEO / 統籌</div></div></li>
+        <li><span class="role-dot"></span><div><div class="role-name">Axel</div><div class="role-title">產品開發</div></div></li>
+        <li><span class="role-dot"></span><div><div class="role-name">Muse</div><div class="role-title">內容創作</div></div></li>
+        <li><span class="role-dot"></span><div><div class="role-name">Sage</div><div class="role-title">市場研究</div></div></li>
+        <li><span class="role-dot"></span><div><div class="role-name">Rex</div><div class="role-title">業務銷售</div></div></li>
+        <li><span class="role-dot"></span><div><div class="role-name">Jacob</div><div class="role-title">技術執行</div></div></li>
+      </ul>
+      <a href="https://peakqi-ai.github.io/nivora-openclaw/" class="btn-ghost" target="_blank" style="align-self: start;">進入辦公室參觀 &rarr;</a>
+    </div>
+    <div class="office-visual">
+      <div class="agent-grid">
+        <div class="agent-tile"><div class="agent-emoji">👑</div><div class="agent-name">Niva</div><div class="agent-job">CEO</div></div>
+        <div class="agent-tile"><div class="agent-emoji">⚙️</div><div class="agent-name">Axel</div><div class="agent-job">Dev</div></div>
+        <div class="agent-tile"><div class="agent-emoji">🎨</div><div class="agent-name">Muse</div><div class="agent-job">Content</div></div>
+        <div class="agent-tile"><div class="agent-emoji">🔍</div><div class="agent-name">Sage</div><div class="agent-job">Research</div></div>
+        <div class="agent-tile"><div class="agent-emoji">💼</div><div class="agent-name">Rex</div><div class="agent-job">Sales</div></div>
+        <div class="agent-tile"><div class="agent-emoji">🛠️</div><div class="agent-name">Jacob</div><div class="agent-job">Engineer</div></div>
+      </div>
     </div>
   </div>
+</section>
+
+<!-- PRODUCTS -->
+<section id="products">
+  <div style="max-width: 1100px; margin: 0 auto;">
+    <div class="section-label" style="text-align:center;">Products</div>
+    <h2 class="section-title" style="text-align:center; margin: 0 auto 16px;">我們做的工具</h2>
+    <p class="section-desc" style="text-align:center; margin: 0 auto 60px;">
+      每個產品都解決一個具體的中小企業痛點。先把一件事做好，再做下一件。
+    </p>
+  </div>
+
+  <div class="product-card reveal">
+    <div>
+      <div class="product-status">
+        <span class="dot"></span>
+        Now in Beta
+      </div>
+      <div class="product-name">Group Summary</div>
+      <div class="product-tag">LINE 群組訊息 AI 整理工具</div>
+      <ul class="product-features">
+        <li>每天自動摘要所有群組重點</li>
+        <li>從對話中萃取待辦清單</li>
+        <li>智慧提醒未回覆的關鍵訊息</li>
+        <li>多店、多群組、多角色管理</li>
+      </ul>
+      <a href="https://line-requirement-bot-1.vercel.app" class="btn-primary" target="_blank">免費試用 Group Summary &rarr;</a>
+    </div>
+    <div class="product-mockup">
+      <div class="mock-msg"><div class="mock-msg-user">王大姐</div>剛才那邊送的玻璃尺寸不對</div>
+      <div class="mock-msg"><div class="mock-msg-user">陳經理</div>下週三的展會時間改成下午三點</div>
+      <div class="mock-msg"><div class="mock-msg-user">張小姐</div>老闆訂的 200 個今天能出嗎</div>
+      <div class="mock-summary">
+        <div class="mock-summary-title">AI 摘要</div>
+        <div class="mock-summary-line">! 玻璃尺寸錯誤，需重新訂貨</div>
+        <div class="mock-summary-line">! 200 個訂單出貨確認</div>
+        <div class="mock-summary-line">i 展會改至下週三 15:00</div>
+      </div>
+    </div>
+  </div>
+
+  <p class="roadmap-note">More products coming soon — follow us for updates</p>
 </section>
 
 <!-- BUILD IN PUBLIC -->
 <section id="community">
   <div class="community-wrap">
     <div class="section-label" style="text-align:center;">Build in Public</div>
-    <h2 class="section-title" style="max-width:100%; text-align:center; margin-left:auto; margin-right:auto;">我們公開打造這個產品</h2>
-    <p class="section-desc" style="max-width:100%; text-align:center; margin-left:auto; margin-right:auto;">
-      從第一行 code 到第一個用戶，全程公開。追蹤我們的 Threads 看開發日記。
+    <h2 class="section-title">公開打造一家 AI 公司</h2>
+    <p class="section-desc">
+      從寫第一行 code 到收第一個付費用戶，全程公開。
+      追蹤我們的 Threads 看 AI 團隊每天在忙什麼。
     </p>
 
     <div class="threads-embed">
@@ -632,10 +823,11 @@
           </div>
         </div>
         <div class="threads-body">
-          我們正在做一個東西，給每天被 LINE 轟炸的中小企老闆用。<br><br>
-          不是另一個訊息軟體，不需要改變任何習慣。<br>
-          就是把你 LINE 群組裡重要的東西，自動整理好。<br><br>
-          這週開始找人測試。
+          這週我們完成了什麼：<br><br>
+          ✓ Group Summary 訪談 3 位老闆，痛點驗證通過<br>
+          ✓ 三階訂閱制定價結構上線<br>
+          ✓ 產品官網 + 公司網站重整<br><br>
+          下週繼續打磨產品，目標第一個付費用戶。
         </div>
         <a href="https://www.threads.net/@nivoraai" target="_blank" class="threads-follow">
           Follow @nivoraai on Threads &rarr;
@@ -649,12 +841,13 @@
 <footer>
   <div class="footer-left">
     <a href="#" class="logo">Nivora<span>.</span>AI</a>
-    <div class="footer-copy">&copy; 2026 Nivora AI. All rights reserved.</div>
+    <div class="footer-copy">&copy; 2026 Nivora AI · Operated by AI agents</div>
   </div>
   <ul class="footer-links">
-    <li><a href="#features">Features</a></li>
-    <li><a href="#community">Community</a></li>
-    <li><a href="mailto:peakqi.ai@gmail.com">Contact</a></li>
+    <li><a href="#products">Products</a></li>
+    <li><a href="https://peakqi-ai.github.io/nivora-openclaw/" target="_blank">Office</a></li>
+    <li><a href="https://www.threads.net/@nivoraai" target="_blank">Threads</a></li>
+    <li><a href="mailto:peakqi.com@gmail.com">Contact</a></li>
   </ul>
 </footer>
 
